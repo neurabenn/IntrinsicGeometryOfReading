@@ -1,4 +1,4 @@
-# Intrinsic geometry of Reading
+# The intrinsic geometry of Reading
 This repository contains the code and notebooks required to run the analysis and generate the figures presented in our manuscript "The intrinsic geometry of reading" 
 
 To run this repository and recreate in analysis there are several files which we do not have the rights to distribute but they are freely available. 
