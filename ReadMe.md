@@ -14,7 +14,7 @@ Therefore you need to add these to your matlab path in all notebooks
 - [PALM](https://github.com/andersonwinkler/PALM)
 - [PermCCA](https://github.com/andersonwinkler/PermCCA) *note this dependency will be deprecated in the future
 
-Finally, you will need download the associated data which is hosted on [Zenodo](https://zenodo.org/) <!---(update link when files are uploaded)-->
+Finally, you will need download the associated [data](https://drive.google.com/file/d/1Das1tvRFrW8JG7besujuJeC-41-16GQa/view?usp=drive_link) <!---(uthis is temporarily a link to my google drive. this will be a zenodo link as soon as we are ready for that)-->
 
 Upon downloading this data repository, set its path to the **data_dir** variable in each notebook. 
 
