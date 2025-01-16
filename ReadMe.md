@@ -15,6 +15,7 @@ Therefore you need to add these to your matlab path in all notebooks
 - [PermCCA](https://github.com/andersonwinkler/PermCCA) *note this dependency will be deprecated in the future
 
 Finally, you will need download the associated data which is hosted on [Zenodo](https://zenodo.org/) <!---(update link when files are uploaded)-->
+
 Upon downloading this data repository, set its path to the **data_dir** variable in each notebook. 
 
 ## Notebook 1
