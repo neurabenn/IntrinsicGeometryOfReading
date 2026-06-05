@@ -50,30 +50,31 @@ data_dir = '/path/to/unpacked/data'
 ### nb1 — Build the dataset
 Sets up the analysis dataset using the `brain2behaviour` dataset class. Loads HCP behavioral and demographic data, selects confounds, and serializes subject-level data objects. The `data_dir` variable must point to your unpacked Zenodo data.
 
-### nb2 — Figure 1a, b
-Runs significance calculations for model performance (cross-validation) and tests for differences between models. Plots Figure 1a and 1b.
-
-### nb3 — Figure 1c
-Generates the circle plot and heatmap visualizations of selected features (Figure 1c).
-
-### nb4 — Figure 1c surface visualization (gifti generation)
-Projects CPM features onto the cortical surface and writes gifti metric files. To use the outputs: set the cortex structure and palette via Connectome Workbench (`wb_command -set-structure`, `wb_command -metric-palette`), or open `surfaces_and_scene_files/FeaturesSchaefer400.scene` directly in Connectome Workbench to view precalculated surface visualizations.
-
-### nb5 — Figure 2
-Runs the brain–behavior relationship analyses plotted in Figure 2.
-
-### nb6 — Supplementary Figures S2–S5
-Replicates the supplementary figures. Requires the Zenodo data to be downloaded and paths filled in where indicated (`< path to >`).
-
-### nb7 — Supplementary Figure S6
-Generates Supplementary Figure S6.
-
-## Parallel scripts
-
-For computationally intensive steps (feature selection, permutation testing), parallelized cluster scripts are provided alongside the notebooks:
-
-- `select_features_batch.py` — batch feature selection across CV folds
-- `End2EndCPM_wPerms.py` — end-to-end CPM with permutation testing
-- `CollectFeaturesandPredict.py` — collects fold results and runs prediction
+## Scripts to run models
+These scripts use the datasets we build in nb1 to run the full CPM pipeline. 
+Steps run (feature selection, permutation testing), parallelized cluster scripts are provided alongside the notebooks:
+- `End2EndCPM_wPerms.py` — end-to-end CPM with permutation testing is the main script
+   - Call it with a dataset the permutations and the task to be tested. 
+- `select_features_batch.py` — batch feature selection across CV folds -- called by end2end
+- `CollectFeaturesandPredict.py` — collects fold results and runs prediction -- called by end2end
 
 Permutation exchangeability blocks for HCP data are precomputed and stored in `fold_permutations/`. For background on HCP-compatible permutation testing see [Winkler et al. 2015](https://brainder.org/2015/12/07/permutation-tests-in-the-human-connectome-project/) and the [PALM exchangeability block guide](https://web.mit.edu/fsl_v5.0.10/fsl/doc/wiki/PALM(2f)ExchangeabilityBlocks.html#EBs_for_data_of_the_Human_Connectome_Project).
+
+
+### nb2 — Figure 1a, b
+Runs significance calculations for model performance (cross-validation) and tests for differences between models. Plots Figure 1a and 1b. Based on outputs of CPM run with the dataset construction in nb1.
+
+### nb3 — Figure 1c
+Generates the circle plot and heatmap visualizations of stable selected features (Figure 1c). Features visualized are those with consistent associations across all folds of cross-validation.
+
+### nb4 — Figure 1c surface visualization (gifti generation)
+Projects CPM features onto the cortical surface and writes gifti metric files. To use the outputs: set the cortex structure and palette via Connectome Workbench (`wb_command -set-structure`, `wb_command -metric-palette`), or open `surfaces_and_scene_files/FeaturesSchaefer400.scene` directly in Connectome Workbench to view precalculated surface visualizations. Alternatively, load the workbench scene stored in the `surfaces_and_scene_files/` directory.
+
+### nb5 — Figure 2
+Shows how generalization from the discovery (HCP Young Adult) to the validation cohort (HCP Lifespan Aging) was done.
+
+### nb6 — Supplementary Figures S2–S5
+Replicates the supplementary figures. Due to file size limits on Zenodo, the model outputs used to calculate between-model comparisons and model significance are available upon request.
+
+### nb7 — Supplementary Figure S6
+Uses the dataset files to plot surface area, cortical distance, and functional connectivity stable features in the discovery cohort with the oral reading recognition test scores and confounds.
