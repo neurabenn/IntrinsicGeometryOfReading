@@ -37,7 +37,7 @@ Several files required to recreate the analysis are not ours to distribute, but 
 
 The analysis data (parcellated surface area, cortical distance matrices, and functional connectivity matrices) are hosted on Zenodo due to file size:
 
-**[https://zenodo.org/records/20529526](https://zenodo.org/records/20529526)**
+**[https://zenodo.org/records/20558695](https://zenodo.org/records/20558695)**
 
 Download and unpack the archive, then update the path variables at the top of each notebook to point to your local copy. In most notebooks this is the `data_dir` variable:
 
